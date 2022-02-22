@@ -1,0 +1,13 @@
+[http]
+  [http.routers]
+    [http.routers.chal1jer_route]
+      entryPoints = ["chal1jer"]
+      service = "chal1jer"
+      rule = "Path(`/`)"
+  [http.services]
+    [http.services.chal1jer]
+      [http.services.chal1jer.loadBalancer]
+        [[http.services.chal1jer.loadBalancer.servers]]
+          url = "http://127.0.0.1:8081"
+        [[http.services.chal1jer.loadBalancer.servers]]
+          url = "http://127.0.0.1:8082"
