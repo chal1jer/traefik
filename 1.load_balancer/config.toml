@@ -1,6 +1,6 @@
 [accesslog]
 [api]
-  insecure=true
+  #insecure=true
   dashboard=true
   debug=true
 [log]
@@ -8,7 +8,9 @@
 [entryPoints]
   [entryPoints.chal1jer]
     address=":80"
+  [entryPoints.api]
+    address=":8080"
 [providers.file]
-  directory = "/home/etud/Documents/xavki/traefik/services/"
+  directory = "/home/etud/Documents/xavki/traefik/1.load_balancer/services/"
   watch = true
 

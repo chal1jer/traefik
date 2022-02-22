@@ -4,6 +4,19 @@
       entryPoints = ["chal1jer"]
       service = "chal1jer"
       rule = "Path(`/`)"
+      middlewares = ["chal1jer"]
+    [http.routers.api]
+      entryPoints = ["api"]
+      service = "api@internal"
+      rule = "PathPrefix(`/api`)||PathPrefix(`/dashboard`)"
+      middlewares = ["chal1jer"]
+  [http.middlewares]
+    [http.middlewares.chal1jer.basicAuth]
+      users = [
+      "chal1jer:$2y$05$p7qvjwP6FmCpwAreiNJO2OVDM6RFqnGj..Gg4kgla1rZ1FhIcK7Ce", 
+      "chal1jer2:$2y$05$p7qvjwP6FmCpwAreiNJO2OVDM6RFqnGj..Gg4kgla1rZ1FhIcK7Ce",
+      ]
+
   [http.services]
     [http.services.chal1jer]
       [http.services.chal1jer.loadBalancer]
