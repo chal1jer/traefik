@@ -16,6 +16,6 @@
     address=":443"
 
 [providers.file]
-  directory = "/home/etud/Documents/xavki/traefik/2.certificat_auto_signe/services/"
+  directory = "/home/etud/Documents/traefik/2.certificat_auto_signe/services/"
   watch = true
 

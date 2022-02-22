@@ -11,6 +11,6 @@
   [entryPoints.api]
     address=":8080"
 [providers.file]
-  directory = "/home/etud/Documents/xavki/traefik/1.load_balancer/services/"
+  directory = "/home/etud/Documents/traefik/1.load_balancer/services/"
   watch = true
 
