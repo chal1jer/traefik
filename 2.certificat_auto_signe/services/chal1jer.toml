@@ -1,0 +1,23 @@
+[http]
+  [http.routers]
+    [http.routers.chal1jer_route]
+      entryPoints = ["chal1jer", "chal1jer_secure"]
+      service = "chal1jer"
+      rule = "Path(`/`)"
+      middlewares = ["chal1jer_https"]
+      [http.routers.chal1jer_route.tls]
+        [[tls.certificates]]
+        certFile = "certs/chal1jer.cert"
+        keyFile = "certs/chal1jer.key"
+  [http.middlewares]
+    [http.middlewares.chal1jer_https.redirectScheme]
+      scheme = "https"
+      permanent = true
+
+  [http.services]
+    [http.services.chal1jer]
+      [http.services.chal1jer.loadBalancer]
+        [[http.services.chal1jer.loadBalancer.servers]]
+          url = "http://127.0.0.1:8081"
+        [[http.services.chal1jer.loadBalancer.servers]]
+          url = "http://127.0.0.1:8082"

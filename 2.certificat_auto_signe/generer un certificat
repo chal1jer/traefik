@@ -1,0 +1,1 @@
+openssl req -x509 -newkey rsa:2048 -keyout xavki.key -out xavki.crt -days 365 -nodes
